@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<h1>Bienvenue dans ce blog</h1>
+
+<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt nostrum ratione rerum est, aut hic officia eum consectetur distinctio ipsa adipisci obcaecati, accusamus maxime nisi eligendi quaerat quibusdam aspernatur! Dignissimos, odio ullam deleniti minima consequuntur quas eveniet libero doloribus inventore.</p>
+<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt nostrum ratione rerum est, aut hic officia eum consectetur distinctio ipsa adipisci obcaecati, accusamus maxime nisi eligendi quaerat quibusdam aspernatur! Dignissimos, odio ullam deleniti minima consequuntur quas eveniet libero doloribus inventore.</p>
+
+
+<br>
+<br>
+<a class="btn btn-danger" href="{{ path('blog') }}">Pages Articles</a>
+<br>
+<br>
+<a class="btn btn-primary" href="{{ path('blog_create') }}">Créer un article</a>
+
+{% endblock %}

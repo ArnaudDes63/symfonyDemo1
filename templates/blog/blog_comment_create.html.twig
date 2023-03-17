@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    
+    <h1>Creation d'un commentaire</h1>
+    
+    
+
+    {{ form_start(formComment) }}
+
+    {{ form_row(formComment.author,{'label': 'Votre Nom','attr': {'placeholder' : "Votre Nom"} }) }}    
+    {{ form_row(formComment.content,{'label': 'Votre commentaire','attr': {'placeholder' : "Contenu du commentaire"} }) }}
+    
+    <br>
+
+    <button type="submit" class="btn btn-success">
+        
+            Ajouter un commentaire
+        
+
+    </button>
+
+    {{ form_end(formComment) }}
+
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<article>
+    <h2>{{article.title}}</h2>
+    <div class="metadata">Ecrit le {{article.createdAt | date('d/m/Y')}} à {{article.createdAt | date('H:i')}} dans la catégorie 
+        {{ article.category.title }}</div>
+    <div class="content">
+        <img src="{{ article.image }}" alt="">
+        <p>{{article.content | raw}}</p> 
+        <a href="{{ path('blog_edit', {'id': article.id}) }}" class="btn btn-primary">Modifier l'article</a>  
+        <a class="btn btn-primary" href="{{ path('blog') }}">Retour aux Articles</a> 
+    </div>
+</article>
+{% if app.user %}
+ <hr>
+ <a class="btn btn-primary" href="{{ path('blog_create_comment', {'id': article.id}) }}">Ajouter un Commentaire</a> 
+<hr> 
+{% else %}
+    <h2>Pour commenter vous devez être connecter</h2>
+{%  endif  %}
+
+
+<section id="commentaires">
+    <h3>{{article.comments | length}} Commentaire :</h3>
+    {% for comment in article.comments %}
+    <div class="comment">
+        <div class="row">
+            <div class="col-3">
+                {{comment.author}} (<small>{{comment.createdAt | date('d,m,Y à H:i')}}</small>)
+            </div>
+            <div class="col">
+                {{comment.content | raw}}
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</section>
+
+{% endblock %}
